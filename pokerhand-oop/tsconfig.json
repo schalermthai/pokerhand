@@ -1,0 +1,36 @@
+{
+  "include": ["**/*.ts", "**/*.js"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "target": "es5",
+    "jsx": "preserve",
+    "lib": ["es5", "dom", "es2015", "es2015.promise", "es2017"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "strictFunctionTypes": false,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "baseUrl": ".",
+    "types": [
+      "@types/node",
+      "@types/jest"
+    ],
+    "paths": {
+      "~/*": ["src/*"],
+      "~~/*": ["test/*"],
+      "@/*": ["./*"]
+    },
+    "esModuleInterop": true,
+    "noEmit": false
+  }
+}
