@@ -1,6 +1,5 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
-import { Straight } from '~/ranks/Straight'
 
 describe('Straight', () => {
   const h = new Hand([
@@ -12,6 +11,6 @@ describe('Straight', () => {
   ])
 
   it('matches as a straight', () => {
-    expect(new Straight().matches(h)).toBeTruthy()
+    expect(h.rank().name).toEqual('Straight')
   })
 })

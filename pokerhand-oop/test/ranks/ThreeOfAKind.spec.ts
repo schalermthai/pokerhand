@@ -1,8 +1,7 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
-import { ThreeOfAKind } from '~/ranks/ThreeOfAKind'
 
-describe('Three Of a Kind', () => {
+describe('Three of a Kind', () => {
   const h = new Hand([
     new Card(Face._2, Suit.S),
     new Card(Face._2, Suit.C),
@@ -12,6 +11,6 @@ describe('Three Of a Kind', () => {
   ])
 
   it('matches as a three of a kind', () => {
-    expect(new ThreeOfAKind().matches(h)).toBeTruthy()
+    expect(h.rank().name).toEqual('Three of a Kind')
   })
 })

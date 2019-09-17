@@ -1,5 +1,4 @@
 import { Hand } from '~/Hand'
-import { Pair } from '~/ranks/Pair'
 import { Card, Face, Suit } from '~/Card'
 
 describe('Pair', () => {
@@ -12,6 +11,6 @@ describe('Pair', () => {
   ])
 
   it('matches as a pair', () => {
-    expect(new Pair().matches(h)).toBeTruthy()
+    expect(h.rank().name).toEqual('Pair')
   })
 })

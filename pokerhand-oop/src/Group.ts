@@ -1,5 +1,6 @@
 import { Hand } from '~/Hand'
 import * as _ from 'lodash'
+import { Card } from '~/Card'
 
 export class Group {
   private readonly group
@@ -20,23 +21,11 @@ export class Group {
     return Object.keys(this.group).length
   }
 
-  single() {
-    return new Group(_.pickBy(this.group, vs => vs.length === 1))
+  filter(f: (vs: Card[]) => boolean) {
+    return new Group(_.pickBy(this.group, f))
   }
 
-  double() {
-    return new Group(_.pickBy(this.group, vs => vs.length === 2))
-  }
-
-  triple() {
-    return new Group(_.pickBy(this.group, vs => vs.length === 3))
-  }
-
-  quadruple() {
-    return new Group(_.pickBy(this.group, vs => vs.length === 4))
-  }
-
-  quintuple() {
-    return new Group(_.pickBy(this.group, vs => vs.length === 5))
+  values(): Hand {
+    return new Hand(Object.values(this.group))
   }
 }

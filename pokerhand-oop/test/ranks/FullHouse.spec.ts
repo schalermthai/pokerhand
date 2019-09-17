@@ -1,6 +1,5 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
-import { FullHouse } from '~/ranks/FullHouse'
 
 describe('Full House', () => {
   const h = new Hand([
@@ -12,6 +11,6 @@ describe('Full House', () => {
   ])
 
   it('matches as a full house', () => {
-    expect(new FullHouse().matches(h)).toBeTruthy()
+    expect(h.rank().name).toEqual('Full House')
   })
 })

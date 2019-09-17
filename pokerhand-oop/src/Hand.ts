@@ -1,8 +1,7 @@
-import * as _ from 'lodash'
 import { Card } from '~/Card'
 import { Group } from '~/Group'
-import { Ranks } from '~/ranks/Ranks'
 import { Rank } from '~/ranks/Rank'
+import { Ranks } from '~/ranks/Ranks'
 
 export class Hand {
   private readonly _cards: Card[]
@@ -41,8 +40,10 @@ export class Hand {
 
   compareTo(h: Hand) {
     for (let i = 0; i < this.size; i++) {
-      if (this.cards[i].face > h.cards[i].face) return this.cards[i].face - h.cards[i].face
-      else if (this.cards[i].face < h.cards[i].face) return h.cards[i].face - this.cards[i].face
+      if (this.cards[i].face > h.cards[i].face)
+        return this.cards[i].face - h.cards[i].face
+      else if (this.cards[i].face < h.cards[i].face)
+        return h.cards[i].face - this.cards[i].face
     }
 
     return 0

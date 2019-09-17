@@ -1,6 +1,5 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
-import { Flush } from '~/ranks/Flush'
 
 describe('Flush', () => {
   const h = new Hand([
@@ -12,6 +11,6 @@ describe('Flush', () => {
   ])
 
   it('matches as a flush', () => {
-    expect(new Flush().matches(h)).toBeTruthy()
+    expect(h.rank().name).toEqual('Flush')
   })
 })

@@ -51,13 +51,13 @@ module.exports = {
   // Force coverage collection from ignored files using an array of glob patterns
   // forceCoverageMatch: [],
 
-  // A path to a module which exports an async function that is triggered once before all test suites
+  // A path to a module which exports an async function that is triggered once before registry test suites
   // globalSetup: null,
 
-  // A path to a module which exports an async function that is triggered once after all test suites
+  // A path to a module which exports an async function that is triggered once after registry test suites
   // globalTeardown: null,
 
-  // A set of global variables that need to be available in all test environments
+  // A set of global variables that need to be available in registry test environments
   // globals: {},
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
@@ -84,7 +84,7 @@ module.exports = {
     '^~~/(.*)$': '<rootDir>/test/$1',
   },
 
-  // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
+  // An array of regexp pattern strings, matched against registry module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
 
   // Activates notifications for test results
@@ -149,7 +149,7 @@ module.exports = {
   //   "**/?(*.)+(spec|test).[tj]s?(x)"
   // ],
 
-  // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
+  // An array of regexp pattern strings that are matched against registry test paths, matched tests are skipped
   // testPathIgnorePatterns: [
   //   "/node_modules/"
   // ],
@@ -172,18 +172,18 @@ module.exports = {
   // A map from regular expressions to paths to transformers
   // transform: null,
 
-  // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
+  // An array of regexp pattern strings that are matched against registry source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
   //   "/node_modules/"
   // ],
 
-  // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
+  // An array of regexp pattern strings that are matched against registry modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
 
   // Indicates whether each individual test should be reported during the run
   // verbose: null,
 
-  // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
+  // An array of regexp patterns that are matched against registry source file paths before re-running tests in watch mode
   // watchPathIgnorePatterns: [],
 
   // Whether to use watchman for file crawling

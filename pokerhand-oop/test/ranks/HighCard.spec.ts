@@ -1,7 +1,5 @@
 import { Hand } from '~/Hand'
-import { Pair } from '~/ranks/Pair'
 import { Card, Face, Suit } from '~/Card'
-import { HighCard } from '~/ranks/HighCard'
 
 describe('HighCard', () => {
   const h = new Hand([
@@ -13,6 +11,6 @@ describe('HighCard', () => {
   ])
 
   it('matches as a high card', () => {
-    expect(new HighCard().matches(h)).toBeTruthy()
+    expect(h.rank().name).toEqual('High Card')
   })
 })

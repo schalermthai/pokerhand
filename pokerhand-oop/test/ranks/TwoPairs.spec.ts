@@ -1,6 +1,5 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
-import { TwoPairs } from '~/ranks/TwoPairs'
 
 describe('Two Pairs', () => {
   const h = new Hand([
@@ -12,6 +11,6 @@ describe('Two Pairs', () => {
   ])
 
   it('matches as two pairs', () => {
-    expect(new TwoPairs().matches(h)).toBeTruthy()
+    expect(h.rank().name).toEqual('Two Pairs')
   })
 })
