@@ -50,6 +50,14 @@ describe('Straight', () => {
       new Card(Face._A, Suit.S)
     ])
 
+    const straightKingAce = new Hand([
+      new Card(Face._T, Suit.S),
+      new Card(Face._J, Suit.C),
+      new Card(Face._Q, Suit.D),
+      new Card(Face._K, Suit.C),
+      new Card(Face._A, Suit.S)
+    ])
+
     it('straight > three of a kind', () => {
       expect(straight1.duel(threeOfAKind1)).toEqual(
         'You win: Straight > Three of a Kind'
@@ -63,6 +71,12 @@ describe('Straight', () => {
     it('straight vs straight: 6 high win 5 high', () => {
       expect(straight1.duel(straightAce)).toEqual(
         'You win: Straight with 6 > 5'
+      )
+    })
+
+    it('straight vs straight: 6 high lose ace high', () => {
+      expect(straight1.duel(straightKingAce)).toEqual(
+        'You lose: Straight with 6 < 14'
       )
     })
   })

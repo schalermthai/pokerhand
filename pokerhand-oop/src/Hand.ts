@@ -40,9 +40,9 @@ export class Hand {
   }
 
   private isConsecutiveStartWithAce(): boolean {
-    const cardsSortedAceFirst = this.cards.sort(
-      (c1, c2) => this.cardValueAceAsOne(c2) - this.cardValueAceAsOne(c1)
-    )
+    const cardsSortedAceFirst = this.cards
+      .map(c => c)
+      .sort((c1, c2) => this.cardValueAceAsOne(c2) - this.cardValueAceAsOne(c1))
     for (let i = 0; i < cardsSortedAceFirst.length - 1; i++) {
       if (
         this.cardValueAceAsOne(cardsSortedAceFirst[i]) - 1 !==
