@@ -1,11 +1,7 @@
 import { Matcher } from '~/matchers/Matcher'
 
 export class CompositeMatcher<T> implements Matcher<T> {
-  private secondaries: Matcher<T>[]
-
-  constructor(private primary: Matcher<T>, secondaries: Matcher<T>[]) {
-    this.secondaries = secondaries || []
-  }
+  constructor(private primary: Matcher<T>, private secondaries: Matcher<T>[]) {}
 
   isMatches(t: T) {
     return (
