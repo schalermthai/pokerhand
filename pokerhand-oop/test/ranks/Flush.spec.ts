@@ -11,6 +11,6 @@ describe('Flush', () => {
   ])
 
   it('matches as a flush', () => {
-    expect(h.rank().name).toEqual('Flush')
+    expect(h.rank.name).toEqual('Flush')
   })
 })

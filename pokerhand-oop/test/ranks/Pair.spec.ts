@@ -11,6 +11,6 @@ describe('Pair', () => {
   ])
 
   it('matches as a pair', () => {
-    expect(h.rank().name).toEqual('Pair')
+    expect(h.rank.name).toEqual('Pair')
   })
 })

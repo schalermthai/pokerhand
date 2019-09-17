@@ -11,6 +11,6 @@ describe('Straight Flush', () => {
   ])
 
   it('matches as a straight flush', () => {
-    expect(h.rank().name).toEqual('Straight Flush')
+    expect(h.rank.name).toEqual('Straight Flush')
   })
 })

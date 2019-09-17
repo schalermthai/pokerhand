@@ -4,10 +4,22 @@ import { Matcher } from '~/matchers/Matcher'
 export class Rank {
   constructor(
     public readonly name: string,
+    public readonly value: number,
     public readonly matcher: Matcher<Hand>
   ) {}
 
   matches(hand: Hand): boolean {
     return this.matcher.isMatches(hand)
+  }
+
+  compareTo(r: Rank) {
+    return this.value - r.value
+  }
+
+  duel(r: Rank) {
+    const rankValue = this.compareTo(r)
+    if (rankValue > 0) return `You win: ${this.name} > ${r.name}`
+    else if (rankValue < 0) return `You lose: ${this.name} < ${r.name}`
+    else return undefined
   }
 }

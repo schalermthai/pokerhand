@@ -10,9 +10,17 @@ export class Hand {
     this._cards = cards.sort((c1, c2) => c2.face - c1.face)
   }
 
-  rank(): Rank {
+  get rank(): Rank {
     // @ts-ignore
     return Ranks.create(this)
+  }
+
+  get matchedRank() {
+    return this.rank.matcher.matched(this)
+  }
+
+  get unMatchedRank() {
+    return this.rank.matcher.unmatched(this)
   }
 
   groupByValue(): Group {
@@ -35,17 +43,36 @@ export class Hand {
   }
 
   get size() {
-    return this._cards.length
+    return this.cards.length
   }
 
-  compareTo(h: Hand) {
-    for (let i = 0; i < this.size; i++) {
-      if (this.cards[i].face > h.cards[i].face)
-        return this.cards[i].face - h.cards[i].face
-      else if (this.cards[i].face < h.cards[i].face)
-        return h.cards[i].face - this.cards[i].face
-    }
+  duel(h: Hand) {
+    const plan = [
+      () => this.rank.duel(h.rank),
+      () => this.matchedRank.highCardDuel(h.rank.name, h.matchedRank),
+      () => this.unMatchedRank.highCardDuel(h.rank.name, h.unMatchedRank),
+      'Tie'
+    ]
 
-    return 0
+    return plan.slice(0).reduce((acc, n, i, arr) => {
+      // @ts-ignore
+      const result = acc()
+      if (result) {
+        arr.splice(i)
+        return result
+      }
+      return n
+    })
+  }
+
+  private highCardDuel(rankName: string, h: Hand) {
+    for (let i = 0; i < this.size; i++) {
+      if (this.cards[i].face > h.cards[i].face) {
+        return `You win: ${rankName} with ${this.cards[i].face} > ${h.cards[i].face}`
+      } else if (this.cards[i].face < h.cards[i].face) {
+        return `You lose: ${rankName} with ${this.cards[i].face} < ${h.cards[i].face}`
+      }
+    }
+    return undefined
   }
 }

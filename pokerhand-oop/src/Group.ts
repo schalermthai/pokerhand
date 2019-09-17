@@ -26,6 +26,6 @@ export class Group {
   }
 
   values(): Hand {
-    return new Hand(Object.values(this.group))
+    return new Hand(_.flatten(Object.values(this.group)))
   }
 }

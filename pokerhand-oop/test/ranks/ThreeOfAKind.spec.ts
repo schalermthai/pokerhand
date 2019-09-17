@@ -11,6 +11,6 @@ describe('Three of a Kind', () => {
   ])
 
   it('matches as a three of a kind', () => {
-    expect(h.rank().name).toEqual('Three of a Kind')
+    expect(h.rank.name).toEqual('Three of a Kind')
   })
 })

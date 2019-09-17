@@ -11,6 +11,7 @@ export class Ranks {
 
 const highCard = new Rank(
   'High Card',
+  1,
   Matchers.compose(
     Matchers.faces(Matchers.single(5)),
     Matchers.suits(Matchers.moreThanOne()),
@@ -20,21 +21,25 @@ const highCard = new Rank(
 
 const pair = new Rank(
   'Pair',
+  2,
   Matchers.faces(Matchers.double(1), Matchers.single(3))
 )
 
 const twoPairs = new Rank(
   'Two Pairs',
+  3,
   Matchers.faces(Matchers.double(2), Matchers.single(1))
 )
 
 const threeOfAKind = new Rank(
   'Three of a Kind',
+  4,
   Matchers.faces(Matchers.triple(1), Matchers.single(2))
 )
 
 const flush = new Rank(
   'Flush',
+  5,
   Matchers.compose(
     Matchers.suits(Matchers.quint(1)),
     Matchers.notConsecutive()
@@ -43,6 +48,7 @@ const flush = new Rank(
 
 const straight = new Rank(
   'Straight',
+  6,
   Matchers.compose(
     Matchers.suits(Matchers.moreThanOne()),
     Matchers.consecutive()
@@ -51,16 +57,19 @@ const straight = new Rank(
 
 const fullHouse = new Rank(
   'Full House',
+  7,
   Matchers.faces(Matchers.triple(1), Matchers.double(1))
 )
 
 const fourOfAKind = new Rank(
   'Four of a Kind',
+  8,
   Matchers.faces(Matchers.quad(1), Matchers.single(1))
 )
 
 const straightFlush = new Rank(
   'Straight Flush',
+  9,
   Matchers.compose(
     Matchers.suits(Matchers.quint(1)),
     Matchers.consecutive()

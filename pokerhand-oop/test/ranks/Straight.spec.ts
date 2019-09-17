@@ -11,6 +11,6 @@ describe('Straight', () => {
   ])
 
   it('matches as a straight', () => {
-    expect(h.rank().name).toEqual('Straight')
+    expect(h.rank.name).toEqual('Straight')
   })
 })

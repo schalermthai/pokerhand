@@ -11,6 +11,6 @@ describe('Full House', () => {
   ])
 
   it('matches as a full house', () => {
-    expect(h.rank().name).toEqual('Full House')
+    expect(h.rank.name).toEqual('Full House')
   })
 })

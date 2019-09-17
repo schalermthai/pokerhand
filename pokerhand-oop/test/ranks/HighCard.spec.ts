@@ -11,6 +11,6 @@ describe('HighCard', () => {
   ])
 
   it('matches as a high card', () => {
-    expect(h.rank().name).toEqual('High Card')
+    expect(h.rank.name).toEqual('High Card')
   })
 })
