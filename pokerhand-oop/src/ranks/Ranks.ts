@@ -37,21 +37,21 @@ const threeOfAKind = new Rank(
   Matchers.faces(Matchers.triple(1), Matchers.single(2))
 )
 
+const straight = new Rank(
+    'Straight',
+    5,
+    Matchers.compose(
+        Matchers.consecutive(),
+        Matchers.suits(Matchers.moreThanOne())
+    )
+)
+
 const flush = new Rank(
   'Flush',
-  5,
+  6,
   Matchers.compose(
     Matchers.suits(Matchers.quint(1)),
     Matchers.notConsecutive()
-  )
-)
-
-const straight = new Rank(
-  'Straight',
-  6,
-  Matchers.compose(
-    Matchers.suits(Matchers.moreThanOne()),
-    Matchers.consecutive()
   )
 )
 
@@ -71,8 +71,8 @@ const straightFlush = new Rank(
   'Straight Flush',
   9,
   Matchers.compose(
-    Matchers.suits(Matchers.quint(1)),
-    Matchers.consecutive()
+    Matchers.consecutive(),
+    Matchers.suits(Matchers.quint(1))
   )
 )
 
