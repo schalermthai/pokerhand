@@ -6,6 +6,6 @@ import { Hand } from '~/card'
 
 export const fourOfKind: Matcher<Hand> = rankMatcher(
   'Four of a Kind',
-  7,
+  8,
   faces(quadruple(1), single(1))
 )

@@ -8,6 +8,6 @@ import { suits } from '~/matchers/composites/groups'
 
 export const straight: Matcher<Hand> = rankMatcher(
   'Straight',
-  4,
+  5,
   matchers(consecutive(true), suits(moreThanOne))
 )

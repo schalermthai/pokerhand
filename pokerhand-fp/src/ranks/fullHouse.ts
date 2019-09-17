@@ -6,6 +6,6 @@ import { faces } from '~/matchers/composites/groups'
 
 export const fullHouse: Matcher<Hand> = rankMatcher(
   'Full House',
-  6,
+  7,
   faces(triple(1), double(1))
 )

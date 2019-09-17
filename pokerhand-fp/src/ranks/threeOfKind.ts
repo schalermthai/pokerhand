@@ -6,6 +6,6 @@ import { faces } from '~/matchers/composites/groups'
 
 export const threeOfKind: Matcher<Hand> = rankMatcher(
   'Three of a Kind',
-  3,
+  4,
   faces(triple(1), single(2))
 )
