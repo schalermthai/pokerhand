@@ -8,8 +8,9 @@ import { flush } from '~/ranks/flush'
 import { fullHouse } from '~/ranks/fullHouse'
 import { straightFlush } from '~/ranks/straightFlush'
 import { Hand } from '~/card'
+import {fourOfKind} from "~/ranks/fourOfKind";
 
-const all = [
+const ranks = [
   highCard,
   pair,
   twoPairs,
@@ -17,10 +18,11 @@ const all = [
   straight,
   flush,
   fullHouse,
+  fourOfKind,
   straightFlush
 ]
 
-export const matchRank = (h: Hand) => all.map(m => m(h)).find(r => r.result)
+export const matchRank = (h: Hand) => ranks.map(m => m(h)).find(r => r.result)
 
 export const rankDueler = (r1: RankMatcherResult, r2: RankMatcherResult) => {
   if (r1.value > r2.value) return `${r1.name}: ${r1.matched[0].face}`
