@@ -10,11 +10,13 @@ const fold: (c: Card, h: Hand) => boolean = (c, h) => {
 
 const isConsecutive = (h: Hand) => fold(_.head(h), _.tail(h))
 
-export const consecutiveMatcher: Matcher = (hand: Hand) => {
+export const consecutive: (expected: boolean) => Matcher<Hand> = expected => (
+  hand: Hand
+) => {
   const sorted = hand.sort(sortByValue)
   return {
-    result: hand.length === 5 && isConsecutive(sorted),
-    primary: sorted,
-    secondary: []
+    result: hand.length === 5 && isConsecutive(sorted) === expected,
+    matched: sorted,
+    unmatched: []
   }
 }

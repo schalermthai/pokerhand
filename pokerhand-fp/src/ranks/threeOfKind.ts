@@ -1,8 +1,11 @@
 import { Matcher } from '~/matchers/type'
-import { faceMatcher, single, triple } from '~/matchers/faceMatchers'
-import { rankMatcher } from '~/ranks/rank'
+import { rankMatcher } from '~/matchers/rank'
+import { single, triple } from '~/matchers/repeats'
+import { Hand } from '~/card'
+import { faces } from '~/matchers/composites/groups'
 
-export const threeOfKind: Matcher = rankMatcher(
+export const threeOfKind: Matcher<Hand> = rankMatcher(
   'Three of a Kind',
-  faceMatcher(triple(1), single(2))
+  3,
+  faces(triple(1), single(2))
 )

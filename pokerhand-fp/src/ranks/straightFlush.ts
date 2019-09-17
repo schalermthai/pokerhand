@@ -1,10 +1,12 @@
-import { straight as isStraight } from './straight'
-import { flush as isFlush } from './flush'
+import { flush } from './flush'
 import { Matcher } from '~/matchers/type'
-import { matchers } from '~/matchers'
-import { rankMatcher } from '~/ranks/rank'
+import { matchers } from '~/matchers/composites'
+import { rankMatcher } from '~/matchers/rank'
+import { consecutive } from '~/matchers/consecutive'
+import { Hand } from '~/card'
 
-export const straightFlush: Matcher = rankMatcher(
+export const straightFlush: Matcher<Hand> = rankMatcher(
   'Straight Flush',
-  matchers(isStraight, isFlush)
+  8,
+  matchers(consecutive(true), flush)
 )

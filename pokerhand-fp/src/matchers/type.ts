@@ -1,9 +1,9 @@
-import { Card, Hand } from '~/card'
+import { Hand } from '~/card'
 
 export type MatchingResult = {
   result: boolean
-  primary: Card[]
-  secondary: Card[]
+  matched: Hand
+  unmatched: Hand
 }
 
-export type Matcher = (hand: Hand) => MatchingResult
+export type Matcher<T> = (t: T) => MatchingResult

@@ -15,16 +15,16 @@ describe('three of kind', () => {
       expect(threeOfKind(hand).result).toBeTruthy()
     })
 
-    it('shows primary as three of kind cards', () => {
-      expect(threeOfKind(hand).primary).toEqual([
+    it('shows matched as three of kind cards', () => {
+      expect(threeOfKind(hand).matched).toEqual([
         { suit: 'D', face: '2' },
         { suit: 'S', face: '2' },
         { suit: 'H', face: '2' }
       ])
     })
 
-    it('shows secondary as single cards sorted by value', () => {
-      expect(threeOfKind(hand).secondary).toEqual([
+    it('shows unmatched as single cards sorted by value', () => {
+      expect(threeOfKind(hand).unmatched).toEqual([
         { suit: 'S', face: '9' },
         { suit: 'S', face: '3' }
       ])

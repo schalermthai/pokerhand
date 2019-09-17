@@ -15,8 +15,8 @@ describe('four of kind', () => {
       expect(fourOfKind(hand).result).toBeTruthy()
     })
 
-    it('shows primary as all four of kind', () => {
-      expect(fourOfKind(hand).primary).toEqual([
+    it('shows matched as all four of kind', () => {
+      expect(fourOfKind(hand).matched).toEqual([
         { suit: 'D', face: '2' },
         { suit: 'S', face: '2' },
         { suit: 'C', face: '2' },
@@ -24,8 +24,8 @@ describe('four of kind', () => {
       ])
     })
 
-    it('shows secondary as single card', () => {
-      expect(fourOfKind(hand).secondary).toEqual([{ suit: 'S', face: '3' }])
+    it('shows unmatched as single card', () => {
+      expect(fourOfKind(hand).unmatched).toEqual([{ suit: 'S', face: '3' }])
     })
   })
 

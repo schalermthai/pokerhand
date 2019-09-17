@@ -6,7 +6,7 @@ describe('rank', () => {
     { suit: 'S', face: '5' },
     { suit: 'S', face: '7' },
     { suit: 'S', face: '9' },
-    { suit: 'S', face: 'J' },
+    { suit: 'D', face: 'J' },
     { suit: 'S', face: 'A' }
   ]
 

@@ -15,16 +15,16 @@ describe('full house', () => {
       expect(fullHouse(hand).result).toBeTruthy()
     })
 
-    it('shows primary as three of kind cards', () => {
-      expect(fullHouse(hand).primary).toEqual([
+    it('shows matched as three of kind cards', () => {
+      expect(fullHouse(hand).matched).toEqual([
         { suit: 'S', face: '9' },
         { suit: 'D', face: '9' },
         { suit: 'H', face: '9' }
       ])
     })
 
-    it('shows secondary as the double card', () => {
-      expect(fullHouse(hand).secondary).toEqual([
+    it('shows unmatched as the double card', () => {
+      expect(fullHouse(hand).unmatched).toEqual([
         { suit: 'S', face: '2' },
         { suit: 'D', face: '2' }
       ])

@@ -1,5 +1,7 @@
 import { Matcher } from '~/matchers/type'
-import { suitMatcher } from '~/matchers/suitMatchers'
-import { rankMatcher } from '~/ranks/rank'
+import { rankMatcher } from '~/matchers/rank'
+import { quintuple } from '~/matchers/repeats'
+import { Hand } from '~/card'
+import { suits } from '~/matchers/composites/groups'
 
-export const flush: Matcher = rankMatcher('Flush', suitMatcher)
+export const flush: Matcher<Hand> = rankMatcher('Flush', 5, suits(quintuple(1)))

@@ -15,8 +15,8 @@ describe('straight', () => {
       expect(straight(hand).result).toBeTruthy()
     })
 
-    it('shows primary as all 5 cards', () => {
-      expect(straight(hand).primary).toEqual([
+    it('shows matched as all 5 cards', () => {
+      expect(straight(hand).matched).toEqual([
         { suit: 'S', face: '6' },
         { suit: 'H', face: '5' },
         { suit: 'S', face: '4' },
@@ -25,8 +25,8 @@ describe('straight', () => {
       ])
     })
 
-    it('shows secondary as none', () => {
-      expect(straight(hand).secondary).toEqual([])
+    it('shows unmatched as none', () => {
+      expect(straight(hand).unmatched).toEqual([])
     })
   })
 
@@ -38,6 +38,18 @@ describe('straight', () => {
         { suit: 'S', face: '4' },
         { suit: 'H', face: '5' },
         { suit: 'S', face: '7' }
+      ]
+
+      expect(straight(hand).result).toBeFalsy()
+    })
+
+    it('returns false when hand is straight flush', () => {
+      const hand: Hand = [
+        { suit: 'D', face: '2' },
+        { suit: 'D', face: '3' },
+        { suit: 'D', face: '4' },
+        { suit: 'D', face: '5' },
+        { suit: 'D', face: '6' }
       ]
 
       expect(straight(hand).result).toBeFalsy()

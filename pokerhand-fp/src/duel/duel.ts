@@ -5,8 +5,8 @@ import { foldUntil } from '~/foldUntil'
 
 const duelers = [
   rankDueler,
-  valueDueler(r => r.primary),
-  valueDueler(r => r.secondary)
+  valueDueler(r => r.matched),
+  valueDueler(r => r.unmatched)
 ]
 
 export const duel = (h1: Hand, h2: Hand) => {

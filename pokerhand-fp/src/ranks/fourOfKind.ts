@@ -1,8 +1,11 @@
 import { Matcher } from '~/matchers/type'
-import { faceMatcher, quadruple, single } from '~/matchers/faceMatchers'
-import { rankMatcher } from '~/ranks/rank'
+import { rankMatcher } from '~/matchers/rank'
+import { quadruple, single } from '~/matchers/repeats'
+import { faces } from '~/matchers/composites/groups'
+import { Hand } from '~/card'
 
-export const fourOfKind: Matcher = rankMatcher(
+export const fourOfKind: Matcher<Hand> = rankMatcher(
   'Four of a Kind',
-  faceMatcher(quadruple(1), single(1))
+  7,
+  faces(quadruple(1), single(1))
 )

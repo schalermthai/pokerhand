@@ -15,8 +15,8 @@ describe('straightFlush flush', () => {
       expect(straightFlush(hand).result).toBeTruthy()
     })
 
-    it('shows primary as all 5 cards', () => {
-      expect(straightFlush(hand).primary).toEqual([
+    it('shows matched as all 5 cards', () => {
+      expect(straightFlush(hand).matched).toEqual([
         { suit: 'D', face: '6' },
         { suit: 'D', face: '5' },
         { suit: 'D', face: '4' },
@@ -25,8 +25,8 @@ describe('straightFlush flush', () => {
       ])
     })
 
-    it('shows secondary as none', () => {
-      expect(straightFlush(hand).secondary).toEqual([])
+    it('shows unmatched as none', () => {
+      expect(straightFlush(hand).unmatched).toEqual([])
     })
   })
 

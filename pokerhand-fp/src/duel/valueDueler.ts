@@ -1,4 +1,4 @@
-import { RankMatcherResult } from '~/ranks/rank'
+import { RankMatcherResult } from '~/matchers/rank'
 import { cardValue } from '~/card'
 import { foldUntil } from '~/foldUntil'
 import * as _ from 'lodash/fp'

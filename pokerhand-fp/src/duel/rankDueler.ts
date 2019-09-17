@@ -1,4 +1,4 @@
-import { RankMatcherResult, rankValues } from '~/ranks/rank'
+import { RankMatcherResult } from '~/matchers/rank'
 import { highCard } from '~/ranks/highCards'
 import { pair } from '~/ranks/pair'
 import { twoPairs } from '~/ranks/twoPairs'
@@ -23,9 +23,7 @@ const all = [
 export const matchRank = (h: Hand) => all.map(m => m(h)).find(r => r.result)
 
 export const rankDueler = (r1: RankMatcherResult, r2: RankMatcherResult) => {
-  if (rankValues(r1.name) > rankValues(r2.name))
-    return `${r1.name}: ${r1.primary[0].face}`
-  else if (rankValues(r1.name) < rankValues(r2.name))
-    return `${r2.name}: ${r2.primary[0].face}`
+  if (r1.value > r2.value) return `${r1.name}: ${r1.matched[0].face}`
+  else if (r1.value < r2.value) return `${r2.name}: ${r2.matched[0].face}`
   return undefined
 }

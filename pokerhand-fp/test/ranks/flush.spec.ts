@@ -15,8 +15,8 @@ describe('flush', () => {
       expect(flush(hand).result).toBeTruthy()
     })
 
-    it('shows primary as all cards that share the same suit', () => {
-      expect(flush(hand).primary).toEqual([
+    it('shows matched as all cards that share the same suit', () => {
+      expect(flush(hand).matched).toEqual([
         { suit: 'D', face: 'Q' },
         { suit: 'D', face: '9' },
         { suit: 'D', face: '7' },
@@ -25,8 +25,8 @@ describe('flush', () => {
       ])
     })
 
-    it('shows secondary as none', () => {
-      expect(flush(hand).secondary).toEqual([])
+    it('shows unmatched as none', () => {
+      expect(flush(hand).unmatched).toEqual([])
     })
   })
 

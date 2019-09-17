@@ -1,8 +1,11 @@
 import { Matcher } from '~/matchers/type'
-import { faceMatcher, double, triple } from '~/matchers/faceMatchers'
-import { rankMatcher } from '~/ranks/rank'
+import { rankMatcher } from '~/matchers/rank'
+import { double, triple } from '~/matchers/repeats'
+import { Hand } from '~/card'
+import { faces } from '~/matchers/composites/groups'
 
-export const fullHouse: Matcher = rankMatcher(
+export const fullHouse: Matcher<Hand> = rankMatcher(
   'Full House',
-  faceMatcher(triple(1), double(1))
+  6,
+  faces(triple(1), double(1))
 )

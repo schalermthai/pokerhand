@@ -15,15 +15,15 @@ describe('pair', () => {
       expect(pair(hand).result).toBeTruthy()
     })
 
-    it('shows primary as the matching double', () => {
-      expect(pair(hand).primary).toEqual([
+    it('shows matched as the matching double', () => {
+      expect(pair(hand).matched).toEqual([
         { suit: 'D', face: '2' },
         { suit: 'S', face: '2' }
       ])
     })
 
-    it('shows secondary as the single cards', () => {
-      expect(pair(hand).secondary).toEqual([
+    it('shows unmatched as the single cards', () => {
+      expect(pair(hand).unmatched).toEqual([
         { suit: 'S', face: '9' },
         { suit: 'S', face: '7' },
         { suit: 'S', face: '3' }

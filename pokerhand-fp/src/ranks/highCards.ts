@@ -1,8 +1,12 @@
 import { Matcher } from '~/matchers/type'
-import { faceMatcher, single } from '~/matchers/faceMatchers'
-import { rankMatcher } from '~/ranks/rank'
+import { rankMatcher } from '~/matchers/rank'
+import { moreThanOne, single } from '~/matchers/repeats'
+import { matchers } from '~/matchers/composites'
+import { Hand } from '~/card'
+import { faces, suits } from '~/matchers/composites/groups'
 
-export const highCard: Matcher = rankMatcher(
+export const highCard: Matcher<Hand> = rankMatcher(
   'High Card',
-  faceMatcher(single(5))
+  1,
+  matchers(faces(single(5)), suits(moreThanOne))
 )

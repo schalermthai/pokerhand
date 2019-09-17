@@ -15,8 +15,8 @@ describe('two pairs', () => {
       expect(twoPairs(hand).result).toBeTruthy()
     })
 
-    it('shows matching pairs in the primary', () => {
-      expect(twoPairs(hand).primary).toEqual([
+    it('shows matching pairs in the matched', () => {
+      expect(twoPairs(hand).matched).toEqual([
         { suit: 'S', face: '9' },
         { suit: 'H', face: '9' },
         { suit: 'D', face: '2' },
@@ -24,8 +24,8 @@ describe('two pairs', () => {
       ])
     })
 
-    it('shows unmatched single cards in the secondary', () => {
-      expect(twoPairs(hand).secondary).toEqual([{ suit: 'S', face: '3' }])
+    it('shows unmatched single cards in the unmatched', () => {
+      expect(twoPairs(hand).unmatched).toEqual([{ suit: 'S', face: '3' }])
     })
   })
 
