@@ -14,6 +14,17 @@ describe('Straight', () => {
     expect(straight1.rank.name).toEqual('Straight')
   })
 
+  it('matches straight start with ace', () => {
+    const straightAce = new Hand([
+      new Card(Face._2, Suit.S),
+      new Card(Face._3, Suit.C),
+      new Card(Face._4, Suit.D),
+      new Card(Face._5, Suit.C),
+      new Card(Face._A, Suit.S)
+    ])
+    expect(straightAce.rank.name).toEqual('Straight')
+  })
+
   describe('duel', () => {
     const threeOfAKind1 = new Hand([
       new Card(Face._2, Suit.S),
@@ -31,6 +42,14 @@ describe('Straight', () => {
       new Card(Face._7, Suit.S)
     ])
 
+    const straightAce = new Hand([
+      new Card(Face._2, Suit.S),
+      new Card(Face._3, Suit.C),
+      new Card(Face._4, Suit.D),
+      new Card(Face._5, Suit.C),
+      new Card(Face._A, Suit.S)
+    ])
+
     it('straight > three of a kind', () => {
       expect(straight1.duel(threeOfAKind1)).toEqual(
         'You win: Straight > Three of a Kind'
@@ -39,6 +58,12 @@ describe('Straight', () => {
 
     it('straight vs straight: highest card of straight wins', () => {
       expect(straight2.duel(straight1)).toEqual('You win: Straight with 7 > 6')
+    })
+
+    it('straight vs straight: 6 high win 5 high', () => {
+      expect(straight1.duel(straightAce)).toEqual(
+        'You win: Straight with 6 > 5'
+      )
     })
   })
 })
