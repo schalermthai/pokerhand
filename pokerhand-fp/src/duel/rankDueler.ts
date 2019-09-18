@@ -8,7 +8,7 @@ import { flush } from '~/ranks/flush'
 import { fullHouse } from '~/ranks/fullHouse'
 import { straightFlush } from '~/ranks/straightFlush'
 import { Hand } from '~/card'
-import {fourOfKind} from "~/ranks/fourOfKind";
+import { fourOfKind } from '~/ranks/fourOfKind'
 
 const ranks = [
   highCard,

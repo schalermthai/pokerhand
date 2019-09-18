@@ -1,6 +1,6 @@
 import { Matcher } from '~/matchers/type'
 import { rankMatcher } from '~/matchers/rank'
-import {double, single} from '~/matchers/repeats'
+import { double, single } from '~/matchers/repeats'
 import { Hand } from '~/card'
 import { faces } from '~/matchers/composites/groups'
 

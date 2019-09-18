@@ -9,11 +9,7 @@ const groups: (
   ...ms
 ) => hand => {
   const comp = matchers(...ms)
-  return {
-    result: comp(groupBy(hand)).result,
-    matched: comp(groupBy(hand)).matched,
-    unmatched: comp(groupBy(hand)).unmatched
-  }
+  return comp(groupBy(hand))
 }
 
 export const faces = groups(groupByFace)

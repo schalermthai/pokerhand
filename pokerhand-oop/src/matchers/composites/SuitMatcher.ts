@@ -6,8 +6,8 @@ import { Group } from '~/Group'
 export class SuitMatcher implements Matcher<Hand> {
   private composite: CompositeMatcher<Group>
 
-  constructor(primary: Matcher<Group>, secondary: Matcher<Group>[]) {
-    this.composite = new CompositeMatcher(primary, secondary)
+  constructor(primary: Matcher<Group>, secondaries: Matcher<Group>[]) {
+    this.composite = new CompositeMatcher(primary, secondaries)
   }
 
   isMatches(hand: Hand): boolean {
