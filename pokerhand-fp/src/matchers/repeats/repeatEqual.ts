@@ -12,8 +12,8 @@ export type MatcherCreator<T> = (matcher: number) => Matcher<T>
 
 export const repeatEqual: (
   repeat: number
-) => MatcherCreator<Group> = repeat => matcher => group => ({
-  result: count(filterBy(valueSizeEq(repeat), group)) === matcher,
+) => MatcherCreator<Group> = repeat => counts => group => ({
+  result: count(filterBy(valueSizeEq(repeat), group)) === counts,
   matched: values(filterBy(valueSizeEq(repeat), group)),
   unmatched: values(filterBy(valueSizeNotEq(repeat), group))
 })

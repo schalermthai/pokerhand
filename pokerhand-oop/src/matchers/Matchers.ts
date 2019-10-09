@@ -7,6 +7,7 @@ import { RepeatMoreThanMatcher } from '~/matchers/repeats/RepeatMoreThanMatcher'
 import { ConsecutiveMatcher } from '~/matchers/ConsecutiveMatcher'
 import { RepeatEqualMatcher } from '~/matchers/repeats/RepeatEqualMatcher'
 import { Card } from '~/Card'
+import { Hand } from '~/Hand'
 
 const repeating = (n: number) => (cs: Card[]) => cs.length === n
 
@@ -15,11 +16,11 @@ export class Matchers {
     return new CompositeMatcher<T>(a, bs)
   }
 
-  static faces(primary: Matcher<Group>, ...secondary: Matcher<Group>[]) {
+  static faces(primary: Matcher<Group>, ...secondary: Matcher<Group>[]): Matcher<Hand> {
     return new FaceMatcher(primary, secondary)
   }
 
-  static suits(primary: Matcher<Group>, ...secondary: Matcher<Group>[]) {
+  static suits(primary: Matcher<Group>, ...secondary: Matcher<Group>[]): Matcher<Hand> {
     return new SuitMatcher(primary, secondary)
   }
 

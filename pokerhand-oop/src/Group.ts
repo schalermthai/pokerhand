@@ -3,7 +3,7 @@ import * as _ from 'lodash'
 import { Card } from '~/Card'
 
 export class Group {
-  private readonly group
+  private readonly group: Hand
 
   static groupByValue(hand: Hand): Group {
     return new Group(_.groupBy(hand.cards, c => c.face))

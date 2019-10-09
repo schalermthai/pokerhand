@@ -7,7 +7,7 @@ export class Hand {
   private readonly _cards: Card[]
 
   constructor(cards: Card[]) {
-    this._cards = cards.sort((c1, c2) => c2.face - c1.face)
+    this._cards = cards.sort(Card.comparable)
   }
 
   get rank(): Rank {
