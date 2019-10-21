@@ -18,7 +18,8 @@ export const rankMatcher: (
   name: Rank,
   value: number,
   matcher: Matcher<Hand>
-) => (hand: Hand) => RankMatcherResult = (name, value, matcher) => hand => ({
+) => (hand: Hand) => RankMatcherResult =
+  (name, value, matcher) => hand => ({
   name,
   value,
   ...matcher(hand)

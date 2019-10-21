@@ -1,16 +1,18 @@
 import * as _ from 'lodash/fp'
-import { Card, sortByValue } from '~/card'
+import { Hand, sortByValue } from '~/card'
 
-export const groupBySuit = _.memoize(_.groupBy(c => c.suit))
-export const groupByFace = _.memoize(_.groupBy(c => c.face))
+export type Group = { [x: string]: Hand }
+export type GroupBy = (h:Hand) => Group
 
-export const count = o => Object.keys(o).length
+export const groupBySuit: GroupBy = _.memoize(_.groupBy(c => c.suit))
+export const groupByFace: GroupBy = _.memoize(_.groupBy(c => c.face))
+
+export const count = (g: Group) => Object.keys(g).length
+
 export const filterBy = _.pickBy
 
-export const values: (o: Group) => Card[] = o =>
-  _.flatten(Object.values(o)).sort(sortByValue)
+export const values: (g: Group) => Hand =
+    g => _.flatten(Object.values(g)).sort(sortByValue)
 
-export const valueSizeEq = n => vs => n === vs.length
-export const valueSizeNotEq = n => vs => n !== vs.length
-
-export type Group = { [x: string]: Card[] }
+export const valueSizeEq = (size: number) => (h: Hand) => size === h.length
+export const valueSizeNotEq = (size: number) => (h: Hand) => size !== h.length
