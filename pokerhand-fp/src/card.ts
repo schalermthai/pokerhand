@@ -1,4 +1,4 @@
-import * as _ from '@/node_modules/lodash/fp'
+import * as _ from 'lodash/fp'
 
 
 export type Suit = 'C' | 'D' | 'H' | 'S'
