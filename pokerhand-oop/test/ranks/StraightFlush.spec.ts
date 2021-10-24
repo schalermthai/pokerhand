@@ -3,11 +3,11 @@ import { Card, Face, Suit } from '~/Card'
 
 describe('Straight Flush', () => {
   const straightFlush1 = new Hand([
-    new Card(Face._2, Suit.S),
-    new Card(Face._3, Suit.S),
-    new Card(Face._4, Suit.S),
-    new Card(Face._5, Suit.S),
-    new Card(Face._6, Suit.S)
+    new Card(Face._2, Suit.SPADE),
+    new Card(Face._3, Suit.SPADE),
+    new Card(Face._4, Suit.SPADE),
+    new Card(Face._5, Suit.SPADE),
+    new Card(Face._6, Suit.SPADE)
   ])
 
   it('matches as a straight flush', () => {
@@ -16,19 +16,19 @@ describe('Straight Flush', () => {
 
   describe('duel', () => {
     const fourOfKind1 = new Hand([
-      new Card(Face._2, Suit.S),
-      new Card(Face._2, Suit.C),
-      new Card(Face._2, Suit.D),
-      new Card(Face._2, Suit.H),
-      new Card(Face._8, Suit.S)
+      new Card(Face._2, Suit.SPADE),
+      new Card(Face._2, Suit.CLUB),
+      new Card(Face._2, Suit.DIAMONDS),
+      new Card(Face._2, Suit.HEART),
+      new Card(Face._8, Suit.SPADE)
     ])
 
     const straightFlush2 = new Hand([
-      new Card(Face._3, Suit.S),
-      new Card(Face._4, Suit.S),
-      new Card(Face._5, Suit.S),
-      new Card(Face._6, Suit.S),
-      new Card(Face._7, Suit.S)
+      new Card(Face._3, Suit.SPADE),
+      new Card(Face._4, Suit.SPADE),
+      new Card(Face._5, Suit.SPADE),
+      new Card(Face._6, Suit.SPADE),
+      new Card(Face._7, Suit.SPADE)
     ])
 
     it('straight flush > four of kind', () => {

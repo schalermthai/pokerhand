@@ -4,7 +4,10 @@ import { Group } from '~/Group'
 import { Card } from '~/Card'
 
 export class RepeatEqualMatcher implements Matcher<Group> {
-  constructor(private predicate, private repeat: number) {}
+  constructor(
+      private predicate: (cs: Card[]) => boolean,
+      private repeat: number
+  ) {}
 
   isMatches(group: Group): boolean {
     return group.filter(this.predicate).countKeys() === this.repeat

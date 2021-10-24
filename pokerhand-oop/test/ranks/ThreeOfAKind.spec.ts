@@ -3,11 +3,11 @@ import { Card, Face, Suit } from '~/Card'
 
 describe('Three of a Kind', () => {
   const threeOfAKind1 = new Hand([
-    new Card(Face._2, Suit.S),
-    new Card(Face._2, Suit.C),
-    new Card(Face._2, Suit.D),
-    new Card(Face._4, Suit.C),
-    new Card(Face._8, Suit.S)
+    new Card(Face._2, Suit.SPADE),
+    new Card(Face._2, Suit.CLUB),
+    new Card(Face._2, Suit.DIAMONDS),
+    new Card(Face._4, Suit.CLUB),
+    new Card(Face._8, Suit.SPADE)
   ])
 
   it('matches as a three of a kind', () => {
@@ -16,27 +16,27 @@ describe('Three of a Kind', () => {
 
   describe('duel', () => {
     const twoPair1 = new Hand([
-      new Card(Face._2, Suit.S),
-      new Card(Face._2, Suit.C),
-      new Card(Face._4, Suit.S),
-      new Card(Face._4, Suit.C),
-      new Card(Face._8, Suit.S)
+      new Card(Face._2, Suit.SPADE),
+      new Card(Face._2, Suit.CLUB),
+      new Card(Face._4, Suit.SPADE),
+      new Card(Face._4, Suit.CLUB),
+      new Card(Face._8, Suit.SPADE)
     ])
 
     const threeOfAKind2 = new Hand([
-      new Card(Face._3, Suit.S),
-      new Card(Face._3, Suit.C),
-      new Card(Face._3, Suit.D),
-      new Card(Face._4, Suit.C),
-      new Card(Face._8, Suit.S)
+      new Card(Face._3, Suit.SPADE),
+      new Card(Face._3, Suit.CLUB),
+      new Card(Face._3, Suit.DIAMONDS),
+      new Card(Face._4, Suit.CLUB),
+      new Card(Face._8, Suit.SPADE)
     ])
 
     const threeOfAKind3 = new Hand([
-      new Card(Face._3, Suit.S),
-      new Card(Face._3, Suit.C),
-      new Card(Face._3, Suit.D),
-      new Card(Face._5, Suit.C),
-      new Card(Face._8, Suit.S)
+      new Card(Face._3, Suit.SPADE),
+      new Card(Face._3, Suit.CLUB),
+      new Card(Face._3, Suit.DIAMONDS),
+      new Card(Face._5, Suit.CLUB),
+      new Card(Face._8, Suit.SPADE)
     ])
 
     it('three of kind > two pairs', () => {

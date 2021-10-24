@@ -3,11 +3,11 @@ import { Card, Face, Suit } from '~/Card'
 
 describe('Two Pairs', () => {
   const twoPair1 = new Hand([
-    new Card(Face._2, Suit.S),
-    new Card(Face._2, Suit.C),
-    new Card(Face._4, Suit.S),
-    new Card(Face._4, Suit.C),
-    new Card(Face._8, Suit.S)
+    new Card(Face._2, Suit.SPADE),
+    new Card(Face._2, Suit.CLUB),
+    new Card(Face._4, Suit.SPADE),
+    new Card(Face._4, Suit.CLUB),
+    new Card(Face._8, Suit.SPADE)
   ])
 
   it('matches as two pairs', () => {
@@ -16,35 +16,35 @@ describe('Two Pairs', () => {
 
   describe('duel', () => {
     const pair = new Hand([
-      new Card(Face._2, Suit.S),
-      new Card(Face._2, Suit.C),
-      new Card(Face._4, Suit.S),
-      new Card(Face._6, Suit.S),
-      new Card(Face._8, Suit.S)
+      new Card(Face._2, Suit.SPADE),
+      new Card(Face._2, Suit.CLUB),
+      new Card(Face._4, Suit.SPADE),
+      new Card(Face._6, Suit.SPADE),
+      new Card(Face._8, Suit.SPADE)
     ])
 
     const twoPair2 = new Hand([
-      new Card(Face._2, Suit.S),
-      new Card(Face._2, Suit.C),
-      new Card(Face._5, Suit.S),
-      new Card(Face._5, Suit.C),
-      new Card(Face._8, Suit.S)
+      new Card(Face._2, Suit.SPADE),
+      new Card(Face._2, Suit.CLUB),
+      new Card(Face._5, Suit.SPADE),
+      new Card(Face._5, Suit.CLUB),
+      new Card(Face._8, Suit.SPADE)
     ])
 
     const twoPair3 = new Hand([
-      new Card(Face._3, Suit.S),
-      new Card(Face._3, Suit.C),
-      new Card(Face._5, Suit.S),
-      new Card(Face._5, Suit.C),
-      new Card(Face._8, Suit.S)
+      new Card(Face._3, Suit.SPADE),
+      new Card(Face._3, Suit.CLUB),
+      new Card(Face._5, Suit.SPADE),
+      new Card(Face._5, Suit.CLUB),
+      new Card(Face._8, Suit.SPADE)
     ])
 
     const twoPair4 = new Hand([
-      new Card(Face._3, Suit.S),
-      new Card(Face._3, Suit.C),
-      new Card(Face._5, Suit.S),
-      new Card(Face._5, Suit.C),
-      new Card(Face._9, Suit.S)
+      new Card(Face._3, Suit.SPADE),
+      new Card(Face._3, Suit.CLUB),
+      new Card(Face._5, Suit.SPADE),
+      new Card(Face._5, Suit.CLUB),
+      new Card(Face._9, Suit.SPADE)
     ])
 
     it('two pairs > pair', () => {

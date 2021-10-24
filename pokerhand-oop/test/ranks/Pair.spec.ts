@@ -3,11 +3,11 @@ import { Card, Face, Suit } from '~/Card'
 
 describe('Pair', () => {
   const pair1 = new Hand([
-    new Card(Face._2, Suit.S),
-    new Card(Face._2, Suit.C),
-    new Card(Face._4, Suit.S),
-    new Card(Face._6, Suit.S),
-    new Card(Face._8, Suit.S)
+    new Card(Face._2, Suit.SPADE),
+    new Card(Face._2, Suit.CLUB),
+    new Card(Face._4, Suit.SPADE),
+    new Card(Face._6, Suit.SPADE),
+    new Card(Face._8, Suit.SPADE)
   ])
 
   it('matches as a pair', () => {
@@ -16,27 +16,27 @@ describe('Pair', () => {
 
   describe('duel', () => {
     const highCard = new Hand([
-      new Card(Face._2, Suit.S),
-      new Card(Face._7, Suit.C),
-      new Card(Face._4, Suit.S),
-      new Card(Face._6, Suit.S),
-      new Card(Face._8, Suit.S)
+      new Card(Face._2, Suit.SPADE),
+      new Card(Face._7, Suit.CLUB),
+      new Card(Face._4, Suit.SPADE),
+      new Card(Face._6, Suit.SPADE),
+      new Card(Face._8, Suit.SPADE)
     ])
 
     const pair2 = new Hand([
-      new Card(Face._3, Suit.S),
-      new Card(Face._3, Suit.C),
-      new Card(Face._4, Suit.S),
-      new Card(Face._6, Suit.S),
-      new Card(Face._8, Suit.S)
+      new Card(Face._3, Suit.SPADE),
+      new Card(Face._3, Suit.CLUB),
+      new Card(Face._4, Suit.SPADE),
+      new Card(Face._6, Suit.SPADE),
+      new Card(Face._8, Suit.SPADE)
     ])
 
     const pair3 = new Hand([
-      new Card(Face._3, Suit.S),
-      new Card(Face._3, Suit.C),
-      new Card(Face._4, Suit.S),
-      new Card(Face._6, Suit.S),
-      new Card(Face._9, Suit.S)
+      new Card(Face._3, Suit.SPADE),
+      new Card(Face._3, Suit.CLUB),
+      new Card(Face._4, Suit.SPADE),
+      new Card(Face._6, Suit.SPADE),
+      new Card(Face._9, Suit.SPADE)
     ])
 
     it('pair > high Card', () => {

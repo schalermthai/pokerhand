@@ -6,6 +6,23 @@ import { Ranks } from '~/ranks/Ranks'
 export class Hand {
   private readonly _cards: Card[]
 
+  private static foldUntilFound(plans: Array<() => string>) {
+    return plans.reduce((
+        acc: Function,
+        n: () => string,
+        i: number,
+        arr
+    ) => {
+      console.log('acc', acc())
+      const result = acc()
+      if (result) {
+        arr.splice(i) // break loop by splice
+        return result
+      }
+      return n
+    })
+  }
+
   constructor(cards: Card[]) {
     this._cards = cards.sort(Card.comparable)
   }
@@ -15,11 +32,11 @@ export class Hand {
     return Ranks.create(this)
   }
 
-  get matchedRank() {
+  get matchedRank(): Hand {
     return this.rank.matcher.matched(this)
   }
 
-  get unMatchedRank() {
+  get unMatchedRank(): Hand {
     return this.rank.matcher.unmatched(this)
   }
 
@@ -46,18 +63,18 @@ export class Hand {
     return this.cards.length
   }
 
-  duel(h: Hand) {
-    const plan = [
-      () => this.rank.duel(h.rank),
-      () => this.matchedRank.duelHighCard(h.rank.name, h.matchedRank),
-      () => this.unMatchedRank.duelHighCard(h.rank.name, h.unMatchedRank),
-      'Tie'
+  duel(h: Hand): () => string {
+    const plan: Array<() => string> = [
+      () => this.rank.duel(h.rank)!,
+      () => this.matchedRank.duelHighCard(h.rank.name, h.matchedRank)!,
+      () => this.unMatchedRank.duelHighCard(h.rank.name, h.unMatchedRank)!,
+      () => 'Tie'
     ]
 
-    return this.foldUntilFound(plan)
+    return Hand.foldUntilFound(plan)!
   }
 
-  private duelHighCard(rankName: string, h: Hand) {
+  private duelHighCard(rankName: string, h: Hand): string | undefined {
     for (let i = 0; i < this.size; i++) {
       if (this.cards[i].face > h.cards[i].face) {
         return `You win: ${rankName} with ${this.cards[i].face} > ${h.cards[i].face}`
@@ -67,18 +84,4 @@ export class Hand {
     }
     return undefined
   }
-
-  private foldUntilFound(plan) {
-    return plan.slice(0).reduce((acc, n, i, arr) => {
-      // @ts-ignore
-      const result = acc()
-      if (result) {
-        arr.splice(i)
-        return result
-      }
-      return n
-    })
-  }
 }
-
-['']

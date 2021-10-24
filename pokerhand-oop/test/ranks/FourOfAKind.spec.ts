@@ -3,11 +3,11 @@ import { Card, Face, Suit } from '~/Card'
 
 describe('Four of a Kind', () => {
   const fourOfKind1 = new Hand([
-    new Card(Face._2, Suit.S),
-    new Card(Face._2, Suit.C),
-    new Card(Face._2, Suit.D),
-    new Card(Face._2, Suit.H),
-    new Card(Face._8, Suit.S)
+    new Card(Face._2, Suit.SPADE),
+    new Card(Face._2, Suit.CLUB),
+    new Card(Face._2, Suit.DIAMONDS),
+    new Card(Face._2, Suit.HEART),
+    new Card(Face._8, Suit.SPADE)
   ])
 
   it('matches as a four of a kind', () => {
@@ -16,27 +16,27 @@ describe('Four of a Kind', () => {
 
   describe('duel', () => {
     const fullHouse1 = new Hand([
-      new Card(Face._2, Suit.S),
-      new Card(Face._2, Suit.C),
-      new Card(Face._2, Suit.D),
-      new Card(Face._4, Suit.C),
-      new Card(Face._4, Suit.S)
+      new Card(Face._2, Suit.SPADE),
+      new Card(Face._2, Suit.CLUB),
+      new Card(Face._2, Suit.DIAMONDS),
+      new Card(Face._4, Suit.CLUB),
+      new Card(Face._4, Suit.SPADE)
     ])
 
     const fourOfKind2 = new Hand([
-      new Card(Face._3, Suit.S),
-      new Card(Face._3, Suit.C),
-      new Card(Face._3, Suit.D),
-      new Card(Face._3, Suit.H),
-      new Card(Face._8, Suit.S)
+      new Card(Face._3, Suit.SPADE),
+      new Card(Face._3, Suit.CLUB),
+      new Card(Face._3, Suit.DIAMONDS),
+      new Card(Face._3, Suit.HEART),
+      new Card(Face._8, Suit.SPADE)
     ])
 
     const fourOfKind3 = new Hand([
-      new Card(Face._3, Suit.S),
-      new Card(Face._3, Suit.C),
-      new Card(Face._3, Suit.D),
-      new Card(Face._3, Suit.H),
-      new Card(Face._9, Suit.S)
+      new Card(Face._3, Suit.SPADE),
+      new Card(Face._3, Suit.CLUB),
+      new Card(Face._3, Suit.DIAMONDS),
+      new Card(Face._3, Suit.HEART),
+      new Card(Face._9, Suit.SPADE)
     ])
 
     it('four of kind > full house', () => {

@@ -12,7 +12,7 @@ export class Rank {
     return this.matcher.isMatches(hand)
   }
 
-  compareTo(r: Rank) {
+  compareTo(r: Rank): number {
     return this.value - r.value
   }
 

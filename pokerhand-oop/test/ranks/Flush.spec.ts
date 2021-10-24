@@ -3,11 +3,11 @@ import { Card, Face, Suit } from '~/Card'
 
 describe('Flush', () => {
   const flush1 = new Hand([
-    new Card(Face._2, Suit.C),
-    new Card(Face._7, Suit.C),
-    new Card(Face._4, Suit.C),
-    new Card(Face._A, Suit.C),
-    new Card(Face._6, Suit.C)
+    new Card(Face._2, Suit.CLUB),
+    new Card(Face._7, Suit.CLUB),
+    new Card(Face._4, Suit.CLUB),
+    new Card(Face._A, Suit.CLUB),
+    new Card(Face._6, Suit.CLUB)
   ])
 
   it('matches as a flush', () => {
@@ -16,19 +16,19 @@ describe('Flush', () => {
 
   describe('duel', () => {
     const straight1 = new Hand([
-      new Card(Face._2, Suit.S),
-      new Card(Face._3, Suit.C),
-      new Card(Face._4, Suit.D),
-      new Card(Face._5, Suit.C),
-      new Card(Face._6, Suit.S)
+      new Card(Face._2, Suit.SPADE),
+      new Card(Face._3, Suit.CLUB),
+      new Card(Face._4, Suit.DIAMONDS),
+      new Card(Face._5, Suit.CLUB),
+      new Card(Face._6, Suit.SPADE)
     ])
 
     const flush2 = new Hand([
-      new Card(Face._3, Suit.C),
-      new Card(Face._7, Suit.C),
-      new Card(Face._4, Suit.C),
-      new Card(Face._A, Suit.C),
-      new Card(Face._6, Suit.C)
+      new Card(Face._3, Suit.CLUB),
+      new Card(Face._7, Suit.CLUB),
+      new Card(Face._4, Suit.CLUB),
+      new Card(Face._A, Suit.CLUB),
+      new Card(Face._6, Suit.CLUB)
     ])
 
     it('flush > straight', () => {
