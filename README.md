@@ -7,3 +7,8 @@ One paradigmn is not superior than the other as long as developer followed good 
 # More about the kata
 
 http://codingdojo.org/kata/PokerHands/
+
+## Adjust
+* defined explicit types
+* used enums for duplicated values
+* adjusted logic on some functions
