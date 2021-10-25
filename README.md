@@ -1,4 +1,4 @@
-# pokerhand - OOP vs FP
+# Poker Hand Kata - OOP vs FP in TypeScript
 
 This kata is to demonstrate different ways of acheiving the same results using different pardigmns, (OOP vs FP). 
 
