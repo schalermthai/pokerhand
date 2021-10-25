@@ -1,7 +1,8 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
+import { RankNames } from "~/ranks/Ranks";
 
-describe('Straight', () => {
+describe(RankNames.STRAIGHT, () => {
   const straight1 = new Hand([
     new Card(Face._2, Suit.SPADE),
     new Card(Face._3, Suit.CLUB),
@@ -11,7 +12,7 @@ describe('Straight', () => {
   ])
 
   it('matches as a straight', () => {
-    expect(straight1.rank.name).toEqual('Straight')
+    expect(straight1.rank.name).toEqual(RankNames.STRAIGHT)
   })
 
   describe('duel', () => {
@@ -33,12 +34,12 @@ describe('Straight', () => {
 
     it('straight > three of a kind', () => {
       expect(straight1.duel(threeOfAKind1)).toEqual(
-        'You win: Straight > Three of a Kind'
+        `You win: ${RankNames.STRAIGHT} > ${RankNames.THREE_OF_KIND}`
       )
     })
 
     it('straight vs straight: highest card of straight wins', () => {
-      expect(straight2.duel(straight1)).toEqual('You win: Straight with 7 > 6')
+      expect(straight2.duel(straight1)).toEqual(`You win: ${RankNames.STRAIGHT} with 7 > 6`)
     })
   })
 })

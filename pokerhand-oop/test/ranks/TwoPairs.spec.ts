@@ -1,7 +1,8 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
+import { RankNames } from "~/ranks/Ranks";
 
-describe('Two Pairs', () => {
+describe(RankNames.TWO_PAIRS, () => {
   const twoPair1 = new Hand([
     new Card(Face._2, Suit.SPADE),
     new Card(Face._2, Suit.CLUB),
@@ -11,7 +12,7 @@ describe('Two Pairs', () => {
   ])
 
   it('matches as two pairs', () => {
-    expect(twoPair1.rank.name).toEqual('Two Pairs')
+    expect(twoPair1.rank.name).toEqual(RankNames.TWO_PAIRS)
   })
 
   describe('duel', () => {
@@ -48,19 +49,19 @@ describe('Two Pairs', () => {
     ])
 
     it('two pairs > pair', () => {
-      expect(twoPair1.duel(pair)).toEqual('You win: Two Pairs > Pair')
+      expect(twoPair1.duel(pair)).toEqual(`You win: ${RankNames.TWO_PAIRS} > ${RankNames.PAIR}`)
     })
 
     it('two pairs vs two pairs: highest two pairs wins', () => {
-      expect(twoPair2.duel(twoPair1)).toEqual('You win: Two Pairs with 5 > 4')
+      expect(twoPair2.duel(twoPair1)).toEqual(`You win: ${RankNames.TWO_PAIRS} with 5 > 4`)
     })
 
     it('two pairs vs two pairs: highest two pairs wins', () => {
-      expect(twoPair3.duel(twoPair2)).toEqual('You win: Two Pairs with 3 > 2')
+      expect(twoPair3.duel(twoPair2)).toEqual(`You win: ${RankNames.TWO_PAIRS} with 3 > 2`)
     })
 
     it('two pairs vs two pairs: same highest pair, highest high card wins', () => {
-      expect(twoPair4.duel(twoPair3)).toEqual('You win: Two Pairs with 9 > 8')
+      expect(twoPair4.duel(twoPair3)).toEqual(`You win: ${RankNames.TWO_PAIRS} with 9 > 8`)
     })
   })
 })

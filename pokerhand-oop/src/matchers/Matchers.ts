@@ -25,7 +25,7 @@ export class Matchers {
   }
 
   static consecutive() {
-    return new ConsecutiveMatcher(true)
+    return new ConsecutiveMatcher()
   }
 
   static notConsecutive() {

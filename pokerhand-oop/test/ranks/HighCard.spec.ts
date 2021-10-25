@@ -1,7 +1,8 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
+import { RankNames } from "~/ranks/Ranks";
 
-describe('HighCard', () => {
+describe(RankNames.HIGH_CARD, () => {
   const h = new Hand([
     new Card(Face._2, Suit.SPADE),
     new Card(Face._7, Suit.CLUB),
@@ -11,7 +12,7 @@ describe('HighCard', () => {
   ])
 
   it('matches as a high card', () => {
-    expect(h.rank.name).toEqual('High Card')
+    expect(h.rank.name).toEqual(RankNames.HIGH_CARD)
   })
 
   it('does not match straight', () => {
@@ -23,7 +24,7 @@ describe('HighCard', () => {
       new Card(Face._6, Suit.SPADE)
     ])
 
-    expect(h.rank.name).not.toEqual('High Card')
+    expect(h.rank.name).not.toEqual(RankNames.HIGH_CARD)
   })
 
   it('does not match flush', () => {
@@ -35,7 +36,7 @@ describe('HighCard', () => {
       new Card(Face._8, Suit.SPADE)
     ])
 
-    expect(h.rank.name).not.toEqual('High Card')
+    expect(h.rank.name).not.toEqual(RankNames.HIGH_CARD)
   })
 
   describe('duel', () => {
@@ -47,6 +48,6 @@ describe('HighCard', () => {
       new Card(Face._8, Suit.SPADE)
     ])
 
-    expect(h2.duel(h)).toEqual('You win: High Card with 5 > 4')
+    expect(h2.duel(h)).toEqual(`You win: ${RankNames.HIGH_CARD} with 5 > 4`)
   })
 })
