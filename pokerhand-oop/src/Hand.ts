@@ -13,7 +13,6 @@ export class Hand {
         i: number,
         arr
     ) => {
-      console.log('acc', acc())
       const result = acc()
       if (result) {
         arr.splice(i) // break loop by splice
@@ -28,7 +27,6 @@ export class Hand {
   }
 
   get rank(): Rank {
-    // @ts-ignore
     return Ranks.create(this)
   }
 
@@ -74,7 +72,7 @@ export class Hand {
     return Hand.foldUntilFound(plan)!
   }
 
-  private duelHighCard(rankName: string, h: Hand): string | undefined {
+  private duelHighCard(rankName: string, h: Hand): Nullable<string> {
     for (let i = 0; i < this.size; i++) {
       if (this.cards[i].face > h.cards[i].face) {
         return `You win: ${rankName} with ${this.cards[i].face} > ${h.cards[i].face}`
@@ -82,6 +80,6 @@ export class Hand {
         return `You lose: ${rankName} with ${this.cards[i].face} < ${h.cards[i].face}`
       }
     }
-    return undefined
+    return null
   }
 }

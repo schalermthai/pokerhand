@@ -15,10 +15,10 @@ export enum Face {
 }
 
 export enum Suit {
-  CLUB = 'club',
-  DIAMONDS = 'diamonds',
-  HEART = 'heart',
-  SPADE = 'spade'
+  CLUB = 'C',
+  DIAMONDS = 'D',
+  HEART = 'H',
+  SPADE = 'S'
 }
 
 export class Card {

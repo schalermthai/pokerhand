@@ -1,7 +1,9 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
 
-describe('Four of a Kind', () => {
+const FOUR_OF_A_KIND = 'Four of a Kind'
+
+describe(FOUR_OF_A_KIND, () => {
   const fourOfKind1 = new Hand([
     new Card(Face._2, Suit.SPADE),
     new Card(Face._2, Suit.CLUB),
@@ -11,7 +13,7 @@ describe('Four of a Kind', () => {
   ])
 
   it('matches as a four of a kind', () => {
-    expect(fourOfKind1.rank.name).toEqual('Four of a Kind')
+    expect(fourOfKind1.rank.name).toEqual(FOUR_OF_A_KIND)
   })
 
   describe('duel', () => {
@@ -41,19 +43,19 @@ describe('Four of a Kind', () => {
 
     it('four of kind > full house', () => {
       expect(fourOfKind1.duel(fullHouse1)).toEqual(
-        'You win: Four of a Kind > Full House'
+        `You win: ${FOUR_OF_A_KIND} > Full House`
       )
     })
 
     it('four of kind vs four of kind: highest card of four of kinds wins', () => {
       expect(fourOfKind2.duel(fourOfKind1)).toEqual(
-        'You win: Four of a Kind with 3 > 2'
+        `You win: ${FOUR_OF_A_KIND} with 3 > 2`
       )
     })
 
     it('four of kind vs four of kind: highest card of pair wins', () => {
       expect(fourOfKind3.duel(fourOfKind2)).toEqual(
-        'You win: Four of a Kind with 9 > 8'
+        `You win: ${FOUR_OF_A_KIND} with 9 > 8`
       )
     })
   })
