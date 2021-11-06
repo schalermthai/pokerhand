@@ -1,6 +1,6 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
-import { RankNames } from "~/ranks/Ranks";
+import { RankNames } from '~/ranks/Ranks'
 
 describe(RankNames.STRAIGHT, () => {
   const straight1 = new Hand([
@@ -39,7 +39,9 @@ describe(RankNames.STRAIGHT, () => {
     })
 
     it('straight vs straight: highest card of straight wins', () => {
-      expect(straight2.duel(straight1)).toEqual(`You win: ${RankNames.STRAIGHT} with 7 > 6`)
+      expect(straight2.duel(straight1)).toEqual(
+        `You win: ${RankNames.STRAIGHT} with 7 > 6`
+      )
     })
   })
 })

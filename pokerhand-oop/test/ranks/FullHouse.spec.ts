@@ -1,6 +1,6 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
-import { RankNames } from "~/ranks/Ranks";
+import { RankNames } from '~/ranks/Ranks'
 
 describe(RankNames.FULL_HOUSE, () => {
   const fullHouse1 = new Hand([
@@ -41,7 +41,9 @@ describe(RankNames.FULL_HOUSE, () => {
     ])
 
     it('full house > flush', () => {
-      expect(fullHouse1.duel(flush1)).toEqual(`You win: ${RankNames.FULL_HOUSE} > ${RankNames.FLUSH}`)
+      expect(fullHouse1.duel(flush1)).toEqual(
+        `You win: ${RankNames.FULL_HOUSE} > ${RankNames.FLUSH}`
+      )
     })
 
     it('full house vs full house: highest card of three of kinds wins', () => {

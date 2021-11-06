@@ -1,7 +1,6 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
-import { RankNames } from "~/ranks/Ranks";
-
+import { RankNames } from '~/ranks/Ranks'
 
 describe(RankNames.FOUR_OF_KIND, () => {
   const fourOfKind1 = new Hand([

@@ -1,6 +1,6 @@
 import { Hand } from '~/Hand'
 import { Card, Face, Suit } from '~/Card'
-import { RankNames } from "~/ranks/Ranks";
+import { RankNames } from '~/ranks/Ranks'
 
 describe(RankNames.FLUSH, () => {
   const flush1 = new Hand([
@@ -33,11 +33,15 @@ describe(RankNames.FLUSH, () => {
     ])
 
     it('flush > straight', () => {
-      expect(flush1.duel(straight1)).toEqual(`You win: ${RankNames.FLUSH} > ${RankNames.STRAIGHT}`)
+      expect(flush1.duel(straight1)).toEqual(
+        `You win: ${RankNames.FLUSH} > ${RankNames.STRAIGHT}`
+      )
     })
 
     it('flush vs flush: highest card of flush wins', () => {
-      expect(flush2.duel(flush1)).toEqual(`You win: ${RankNames.FLUSH} with 3 > 2`)
+      expect(flush2.duel(flush1)).toEqual(
+        `You win: ${RankNames.FLUSH} with 3 > 2`
+      )
     })
   })
 })
