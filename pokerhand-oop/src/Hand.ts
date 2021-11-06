@@ -6,22 +6,6 @@ import { Ranks } from '~/ranks/Ranks'
 export class Hand {
   private readonly _cards: Card[]
 
-  private static foldUntilFound(plans: Array<() => string>) {
-    return plans.reduce((
-        acc: Function,
-        n: () => string,
-        i: number,
-        arr
-    ) => {
-      const result = acc()
-      if (result) {
-        arr.splice(i) // break loop by splice
-        return result
-      }
-      return n
-    })
-  }
-
   constructor(cards: Card[]) {
     this._cards = cards.sort(Card.comparable)
   }
@@ -47,10 +31,11 @@ export class Hand {
   }
 
   get isConsecutive(): boolean {
-    for (let i = 0; i < this.cards.length - 1; i++) {
-      if (this.cards[i].face - 1 !== this.cards[i + 1].face) return false
-    }
-    return true
+    return this.cards.every((card, idx) => {
+      return idx === 0
+          ? true
+          : Math.abs(card.face - this.cards[idx - 1].face) === 1
+    })
   }
 
   get cards() {
@@ -61,15 +46,11 @@ export class Hand {
     return this.cards.length
   }
 
-  duel(h: Hand): () => string {
-    const plan: Array<() => string> = [
-      () => this.rank.duel(h.rank)!,
-      () => this.matchedRank.duelHighCard(h.rank.name, h.matchedRank)!,
-      () => this.unMatchedRank.duelHighCard(h.rank.name, h.unMatchedRank)!,
-      () => 'Tie'
-    ]
-
-    return Hand.foldUntilFound(plan)!
+  duel(h: Hand): string {
+    return this.rank.duel(h.rank)
+      || this.matchedRank.duelHighCard(h.rank.name, h.matchedRank)
+      || this.unMatchedRank.duelHighCard(h.rank.name, h.unMatchedRank)
+      || 'Tie'
   }
 
   private duelHighCard(rankName: string, h: Hand): Nullable<string> {

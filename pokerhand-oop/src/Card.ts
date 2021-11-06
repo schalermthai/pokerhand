@@ -24,5 +24,5 @@ export enum Suit {
 export class Card {
   constructor(public readonly face: Face, public readonly suit: Suit) {}
 
-  static comparable = (a: Card, b: Card) => a.face - b.face
+  static comparable = (a: Card, b: Card) => b.face - a.face
 }

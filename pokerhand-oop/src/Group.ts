@@ -1,10 +1,10 @@
 import { Hand } from '~/Hand'
 import { groupBy, pickBy, flatten } from 'lodash'
-import { Card } from "~/Card";
+import { Card } from '~/Card'
 
 export class Group {
   static groupByValue(hand: Hand): Group {
-    const grouped = groupBy(hand.cards,(c: Card) => c.face)
+    const grouped = groupBy(hand.cards, (c: Card) => c.face)
     return new Group(grouped)
   }
 
@@ -12,7 +12,6 @@ export class Group {
     return new Group(groupBy(hand.cards, card => card.suit))
   }
   constructor(private readonly group: Partial<Hand>) {}
-
 
   countKeys(): number {
     return Object.keys(this.group).length

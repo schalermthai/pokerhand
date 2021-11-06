@@ -5,8 +5,8 @@ import { Card } from '~/Card'
 
 export class RepeatEqualMatcher implements Matcher<Group> {
   constructor(
-      private predicate: (cs: Card[]) => boolean,
-      private repeat: number
+    private predicate: (cs: Card[]) => boolean,
+    private repeat: number
   ) {}
 
   isMatches(group: Group): boolean {
