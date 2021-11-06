@@ -11,15 +11,14 @@ export class Hand {
   }
 
   get rank(): Rank {
-    // @ts-ignore
     return Ranks.create(this)
   }
 
-  get matchedRank() {
+  get matchedRank(): Hand {
     return this.rank.matcher.matched(this)
   }
 
-  get unMatchedRank() {
+  get unMatchedRank(): Hand {
     return this.rank.matcher.unmatched(this)
   }
 
@@ -32,10 +31,11 @@ export class Hand {
   }
 
   get isConsecutive(): boolean {
-    for (let i = 0; i < this.cards.length - 1; i++) {
-      if (this.cards[i].face - 1 !== this.cards[i + 1].face) return false
-    }
-    return true
+    return this.cards.every((card, idx) => {
+      return idx === 0
+          ? true
+          : Math.abs(card.face - this.cards[idx - 1].face) === 1
+    })
   }
 
   get cards() {
@@ -46,18 +46,14 @@ export class Hand {
     return this.cards.length
   }
 
-  duel(h: Hand) {
-    const plan = [
-      () => this.rank.duel(h.rank),
-      () => this.matchedRank.duelHighCard(h.rank.name, h.matchedRank),
-      () => this.unMatchedRank.duelHighCard(h.rank.name, h.unMatchedRank),
-      'Tie'
-    ]
-
-    return this.foldUntilFound(plan)
+  duel(h: Hand): string {
+    return this.rank.duel(h.rank)
+      || this.matchedRank.duelHighCard(h.rank.name, h.matchedRank)
+      || this.unMatchedRank.duelHighCard(h.rank.name, h.unMatchedRank)
+      || 'Tie'
   }
 
-  private duelHighCard(rankName: string, h: Hand) {
+  private duelHighCard(rankName: string, h: Hand): Nullable<string> {
     for (let i = 0; i < this.size; i++) {
       if (this.cards[i].face > h.cards[i].face) {
         return `You win: ${rankName} with ${this.cards[i].face} > ${h.cards[i].face}`
@@ -65,20 +61,6 @@ export class Hand {
         return `You lose: ${rankName} with ${this.cards[i].face} < ${h.cards[i].face}`
       }
     }
-    return undefined
-  }
-
-  private foldUntilFound(plan) {
-    return plan.slice(0).reduce((acc, n, i, arr) => {
-      // @ts-ignore
-      const result = acc()
-      if (result) {
-        arr.splice(i)
-        return result
-      }
-      return n
-    })
+    return null
   }
 }
-
-['']

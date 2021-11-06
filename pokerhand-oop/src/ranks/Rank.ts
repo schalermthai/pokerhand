@@ -12,14 +12,14 @@ export class Rank {
     return this.matcher.isMatches(hand)
   }
 
-  compareTo(r: Rank) {
+  compareTo(r: Rank): number {
     return this.value - r.value
   }
 
-  duel(r: Rank) {
+  duel(r: Rank): Nullable<string> {
     const rankValue = this.compareTo(r)
     if (rankValue > 0) return `You win: ${this.name} > ${r.name}`
     else if (rankValue < 0) return `You lose: ${this.name} < ${r.name}`
-    else return undefined
+    else return null
   }
 }

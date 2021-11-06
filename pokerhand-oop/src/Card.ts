@@ -15,14 +15,14 @@ export enum Face {
 }
 
 export enum Suit {
-  C = 'C',
-  D = 'D',
-  H = 'H',
-  S = 'S'
+  CLUB = 'C',
+  DIAMONDS = 'D',
+  HEART = 'H',
+  SPADE = 'S'
 }
 
 export class Card {
   constructor(public readonly face: Face, public readonly suit: Suit) {}
 
-  static comparable = (c1: Card, c2: Card) => c2.face - c1.face
+  static comparable = (a: Card, b: Card) => b.face - a.face
 }

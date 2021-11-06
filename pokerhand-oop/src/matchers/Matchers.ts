@@ -25,7 +25,7 @@ export class Matchers {
   }
 
   static consecutive() {
-    return new ConsecutiveMatcher(true)
+    return new ConsecutiveMatcher()
   }
 
   static notConsecutive() {
@@ -36,23 +36,23 @@ export class Matchers {
     return new RepeatMoreThanMatcher(1)
   }
 
-  static single(count) {
+  static single(count: number) {
     return new RepeatEqualMatcher(repeating(1), count)
   }
 
-  static double(count) {
+  static double(count: number) {
     return new RepeatEqualMatcher(repeating(2), count)
   }
 
-  static triple(count) {
+  static triple(count: number) {
     return new RepeatEqualMatcher(repeating(3), count)
   }
 
-  static quad(count) {
+  static quad(count: number) {
     return new RepeatEqualMatcher(repeating(4), count)
   }
 
-  static quint(count) {
+  static quint(count: number) {
     return new RepeatEqualMatcher(repeating(5), count)
   }
 }

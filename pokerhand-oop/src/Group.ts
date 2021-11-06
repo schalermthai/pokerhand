@@ -1,31 +1,32 @@
+import fp from 'lodash/fp'
+import { GroupedCardByFace, GroupedCardBySuit } from "~/@types/groups";
 import { Hand } from '~/Hand'
-import * as _ from 'lodash'
 import { Card } from '~/Card'
 
-export class Group {
-  private readonly group: Hand
+const groupBy = <T>(key: keyof T) => fp.groupBy<T>((t) => t[key])
 
+export class Group {
   static groupByValue(hand: Hand): Group {
-    return new Group(_.groupBy(hand.cards, c => c.face))
+    const groupByFace = groupBy<Card>('face')
+    return new Group(groupByFace(hand.cards))
   }
 
   static groupBySuit(hand: Hand): Group {
-    return new Group(_.groupBy(hand.cards, c => c.suit))
+    const groupBySuit = groupBy<Card>('suit')
+    return new Group(groupBySuit(hand.cards))
   }
 
-  constructor(group) {
-    this.group = group
-  }
+  constructor(private readonly group: GroupedCardBySuit | GroupedCardByFace) {}
 
-  countKeys() {
+  countKeys(): number {
     return Object.keys(this.group).length
   }
 
-  filter(f: (vs: Card[]) => boolean) {
-    return new Group(_.pickBy(this.group, f))
+  filter(predicate: (vs: Card[]) => boolean): Group {
+    return new Group(fp.pickBy(predicate)(this.group))
   }
 
   values(): Hand {
-    return new Hand(_.flatten(Object.values(this.group)))
+    return new Hand(fp.flatten(Object.values(this.group as Hand)))
   }
 }

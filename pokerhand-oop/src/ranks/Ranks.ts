@@ -2,15 +2,26 @@ import { Hand } from '~/Hand'
 import { Matchers } from '~/matchers/Matchers'
 import { Rank } from '~/ranks/Rank'
 
+export enum RankNames {
+  HIGH_CARD = 'High Card',
+  PAIR = 'PAIR',
+  TWO_PAIRS = 'Two Pairs',
+  THREE_OF_KIND = 'Three of a Kind',
+  STRAIGHT = 'Straight',
+  FLUSH = 'Flush',
+  FULL_HOUSE = 'Full House',
+  FOUR_OF_KIND = 'Four of a Kind',
+  STRAIGHT_FLUSH = 'Straight Flush'
+}
+
 export class Ranks {
   static create(hand: Hand): Rank {
-    // @ts-ignore
-    return registry.find(r => r.matches(hand))
+    return registry.find(r => r.matches(hand))!
   }
 }
 
 const highCard = new Rank(
-  'High Card',
+  RankNames.HIGH_CARD,
   1,
   Matchers.compose(
     Matchers.faces(Matchers.single(5)),
@@ -20,25 +31,25 @@ const highCard = new Rank(
 )
 
 const pair = new Rank(
-  'Pair',
+  RankNames.PAIR,
   2,
   Matchers.faces(Matchers.double(1), Matchers.single(3))
 )
 
 const twoPairs = new Rank(
-  'Two Pairs',
+  RankNames.TWO_PAIRS,
   3,
   Matchers.faces(Matchers.double(2), Matchers.single(1))
 )
 
 const threeOfAKind = new Rank(
-  'Three of a Kind',
+  RankNames.THREE_OF_KIND,
   4,
   Matchers.faces(Matchers.triple(1), Matchers.single(2))
 )
 
 const straight = new Rank(
-  'Straight',
+  RankNames.STRAIGHT,
   5,
   Matchers.compose(
     Matchers.consecutive(),
@@ -47,7 +58,7 @@ const straight = new Rank(
 )
 
 const flush = new Rank(
-  'Flush',
+  RankNames.FLUSH,
   6,
   Matchers.compose(
     Matchers.suits(Matchers.quint(1)),
@@ -56,19 +67,19 @@ const flush = new Rank(
 )
 
 const fullHouse = new Rank(
-  'Full House',
+  RankNames.FULL_HOUSE,
   7,
   Matchers.faces(Matchers.triple(1), Matchers.double(1))
 )
 
 const fourOfAKind = new Rank(
-  'Four of a Kind',
+  RankNames.FOUR_OF_KIND,
   8,
   Matchers.faces(Matchers.quad(1), Matchers.single(1))
 )
 
 const straightFlush = new Rank(
-  'Straight Flush',
+  RankNames.STRAIGHT_FLUSH,
   9,
   Matchers.compose(
     Matchers.consecutive(),
